@@ -5,37 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="449d1d31-5ac4-44df-8471-b672bc90097e" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_lettuce_lettuce_core_6_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_94_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_94_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_94_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_94_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_94_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_94_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_94_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_5_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_angus_angus_activation_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_angus_jakarta_mail_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_8_0_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_5_1_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_3_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_3_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_3_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_3_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_3_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_6_0_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_6_0_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/impl/AdminServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/registerPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/registerPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/impl/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/impl/AdminServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +159,7 @@
       <workItem from="1689297689267" duration="11144000" />
       <workItem from="1689319713529" duration="9858000" />
       <workItem from="1689329679021" duration="1111000" />
-      <workItem from="1689330838546" duration="2944000" />
+      <workItem from="1689330838546" duration="3429000" />
     </task>
     <task id="LOCAL-00001" summary="创建项目">
       <created>1689073430487</created>
@@ -282,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689309094879</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="2021.7.14,part3">
+      <created>1689333938027</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1689333938027</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +318,8 @@
     <MESSAGE value="2021.7.13,part3" />
     <MESSAGE value="2021.7.14,part1" />
     <MESSAGE value="2021.7.14,part2" />
-    <option name="LAST_COMMIT_MESSAGE" value="2021.7.14,part2" />
+    <MESSAGE value="2021.7.14,part3" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021.7.14,part3" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

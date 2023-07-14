@@ -14,7 +14,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 
 @Service
@@ -55,10 +57,10 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public boolean sendValidateEmail(String email, String sessionId) {
         String key = "email:" + sessionId + ":" + email;
-//        if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(key))) {
-//            long expire = Optional.ofNullable(stringRedisTemplate.getExpire(key, TimeUnit.SECONDS)).orElse(0L);
-//            if (expire > 120) return false;
-//        }
+        if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(key))) {
+            long expire = Optional.ofNullable(stringRedisTemplate.getExpire(key, TimeUnit.SECONDS)).orElse(0L);
+            if (expire > 120) return false;
+        }
         Random random = new Random();
         int code = random.nextInt(899999 + 100000);//先生成对应的验证码
         SimpleMailMessage message = new SimpleMailMessage();
@@ -68,7 +70,7 @@ public class AdminServiceImpl implements AdminService {
         message.setText("验证码是:" + code);//正文
         try {
             mailSender.send(message);
-//            stringRedisTemplate.opsForValue().set(key, String.valueOf(code), 3, TimeUnit.MINUTES);//把邮箱和验证码发到redis中
+            stringRedisTemplate.opsForValue().set(key, String.valueOf(code), 3, TimeUnit.MINUTES);//把邮箱和验证码发到redis中
             return true;
         } catch (MailException e) {
             e.printStackTrace();
