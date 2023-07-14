@@ -26,8 +26,8 @@ public class AdminService implements UserDetailsService {
         }
         return User
                 .withUsername(admin.getAname())
-                .password("{noop}" + admin.getAmima())
+                .password("{noop}" + admin.getAmima())//不加密用{noop}
                 .roles("user")
                 .build();
     }
-}
+}//查找admin

@@ -1,3 +1,4 @@
+<!--实现登录验证功能-->
 <template>
   <div style="margin: 0 30px;text-align: center">
     <div style="margin-top: 150px">
@@ -41,7 +42,7 @@
       <span style="color:grey;font-size: 15px">没有账号?</span>
     </el-divider>
     <div style="margin: 40px">
-      <el-button plain style="width: 270px" type="warning">注册账号</el-button>
+      <el-button plain style="width: 270px" type="warning" @click="router.push('/register')">注册账号</el-button>
     </div>
   </div>
 </template>
@@ -57,7 +58,7 @@ const form = reactive({
   username: '',
   password: '',
   remember: false
-})
+})//表单默认传递的信息
 
 const login = () => {
   if (!form.username || !form.password) {
@@ -70,8 +71,7 @@ const login = () => {
     }, (message) => {
       ElMessage.success(message)
       router.push('/index')
-    })
-
+    })//获取表单信息并验证转页
   }
 }
 </script>

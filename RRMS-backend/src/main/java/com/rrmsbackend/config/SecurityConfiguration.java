@@ -16,10 +16,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import javax.sql.DataSource;
 import java.io.IOException;
 
 @Configuration
@@ -28,8 +31,11 @@ public class SecurityConfiguration {
     @Resource
     AdminService adminService;
 
+    @Resource
+    DataSource dataSource;
+
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity httpSecurity, PersistentTokenRepository repository) throws Exception {
         return httpSecurity
                 .authorizeHttpRequests()
                 .anyRequest().authenticated()
@@ -42,6 +48,11 @@ public class SecurityConfiguration {
                 .logout()
                 .logoutUrl("/api/auth/logout")
                 .and()
+                .rememberMe()
+                .rememberMeParameter("remember")//调用记住我的功能
+                .tokenRepository(repository)//使用记住我的jdbc存储位置
+                .tokenValiditySeconds(3600 * 24 * 7)//记住我的存储时间
+                .and()
                 .csrf()
                 .disable()
                 .cors()
@@ -53,6 +64,15 @@ public class SecurityConfiguration {
                 .build();
     }
 
+    @Bean
+    public PersistentTokenRepository tokenRepository() {
+        JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
+        jdbcTokenRepository.setDataSource(dataSource);
+        jdbcTokenRepository.setCreateTableOnStartup(false);
+        return jdbcTokenRepository;
+    }//实现‘记住我’
+
+
     private CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration cors = new CorsConfiguration();
         cors.addAllowedOriginPattern("*");
@@ -63,7 +83,7 @@ public class SecurityConfiguration {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", cors);
         return source;
-    }
+    }//允许前端访问数据库
 
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity security) throws Exception {
@@ -71,7 +91,7 @@ public class SecurityConfiguration {
                 .userDetailsService(adminService)
                 .and()
                 .build();
-    }
+    }//调用adminService实现搜索admin
 
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         response.setCharacterEncoding("utf-8");

@@ -8,6 +8,6 @@ public class RrmsBackendApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RrmsBackendApplication.class, args);
-    }
+    }//自带的
 
 }

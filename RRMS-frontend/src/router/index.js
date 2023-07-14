@@ -1,3 +1,4 @@
+//实现网页内容的路由信息配置
 import {createRouter, createWebHistory} from 'vue-router'
 
 const router = createRouter({
@@ -8,8 +9,12 @@ const router = createRouter({
     component: () => import('@/views/welcomeView.vue'),
     children: [{
       path: '',
-      name: 'welcomeLogin',
+      name: 'welcome-login',
       component: () => import('@/components/welcome/loginPage.vue'),
+    }, {
+      path: 'register',
+      name: 'welcome-register',
+      component: () => import('@/components/welcome/registerPage.vue'),
     }]
   }, {
     path: '/index',

@@ -31,4 +31,4 @@ public class RestBean<T> {
     public static <T> RestBean<T> failure(int status, T data) {
         return new RestBean<>(status, false, data);
     }
-}
+}//封装传递的信息

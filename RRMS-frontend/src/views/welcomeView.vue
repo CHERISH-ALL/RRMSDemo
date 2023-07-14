@@ -1,3 +1,4 @@
+<!--登录界面左侧（相同）内容的显示-->
 <template>
   <div style="width :100vw; height: 100vh; overflow:hidden;display: flex">
     <div style="flex: 1;background-color: blue">
@@ -9,7 +10,12 @@
       <div style="margin-top: 10px">在这里你可以参与科研课题</div>
     </div>
     <div style="width: 500px;background-color:white">
-      <router-view/>
+      <!--引入动态效果-->
+      <transition name="el-fade-in-linear">
+        <!--之后的内容在路由中寻找-->
+        <router-view/>
+      </transition>
+
     </div>
   </div>
 </template>
