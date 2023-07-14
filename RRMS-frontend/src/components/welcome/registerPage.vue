@@ -11,8 +11,7 @@
     <div style="margin-top: 50px">
       <!--定义校验规则-->
       <!--@validate:绑定事件-->
-      <el-form :model="form"
-               :rules="rules" @validate="onValidate">
+      <el-form ref="formRef" :model="form" :rules="rules" @validate="onValidate">
         <!--        <el-form-item>-->
         <!--          输入基本信息-->
         <!--                  <el-input v-model="form." type="text" placeholder="学号" style="margin-top: 10px">-->
@@ -73,7 +72,7 @@
                 </el-input>
               </el-col>
               <el-col :span="6">
-                <el-button :disabled="!isEmailValid" type="success">获取验证码</el-button>
+                <el-button :disabled="!isEmailValid" type="success" @click="validateEmail">获取验证码</el-button>
               </el-col>
             </el-row>
           </div>
@@ -81,7 +80,7 @@
       </el-form>
     </div>
     <div style="margin-top: 40px">
-      <el-button plain style="width: 270px" type="warning">立即注册</el-button>
+      <el-button plain style="width: 270px" type="warning" @click="register">立即注册</el-button>
       <div style="margin-top: 15px">
         <span style="font-size: 14px;line-height: 14px;color: gray">已有账号？</span>
         <el-link style="translate:0 -2px" type="primary" @click="router.push('/')">立即登录</el-link>
@@ -93,6 +92,8 @@
 <script setup>
 import router from "@/router"
 import {reactive, ref} from "vue";
+import {ElMessage} from "element-plus";
+import {post} from "@/net";
 
 const form = reactive({
   username: '',
@@ -138,17 +139,41 @@ const rules = {
   email: [
     {required: true, message: '请输入邮件地址', trigger: ['blur', 'change']},
     {type: 'email', message: '请输入合法的邮箱地址', trigger: ['blur', 'change']},
+  ],
+  code: [
+    {required: true, message: '请输入获取的验证码', trigger: 'blur'},
   ]
 }
 
 //未输入合法邮箱之前 不能获取验证码
 const isEmailValid = ref(false)
+const formRef = ref()
 
 //没次验证邮箱更新情况
 const onValidate = (prop, isValid) => {
   if (prop === 'email') {
     isEmailValid.value = isValid;
   }
+}
+
+
+//信息完全正确后允许注册
+const register = () => {
+  formRef.value.validate((isValid) => {
+    if (isValid) {
+    } else {
+      ElMessage.warning('请完整填写上述表单内容')
+    }
+  })
+}
+
+//获取验证码
+const validateEmail = () => {
+  post('api/auth/valid-email', {
+    email: form.email
+  }, (message) => {
+    ElMessage.success(message);
+  })
 }
 </script>
 

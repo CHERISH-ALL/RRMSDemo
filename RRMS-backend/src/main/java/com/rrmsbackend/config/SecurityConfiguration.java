@@ -2,7 +2,7 @@ package com.rrmsbackend.config;
 
 import com.alibaba.fastjson.JSONObject;
 import com.rrmsbackend.eneity.RestBean;
-import com.rrmsbackend.service.AdminService;
+import com.rrmsbackend.service.impl.AdminServiceImpl;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -29,7 +29,7 @@ import java.io.IOException;
 @EnableWebSecurity
 public class SecurityConfiguration {
     @Resource
-    AdminService adminService;
+    AdminServiceImpl adminServiceImpl;
 
     @Resource
     DataSource dataSource;
@@ -38,6 +38,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity, PersistentTokenRepository repository) throws Exception {
         return httpSecurity
                 .authorizeHttpRequests()
+                .requestMatchers("api/auth/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -88,7 +89,7 @@ public class SecurityConfiguration {
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity security) throws Exception {
         return security.getSharedObject(AuthenticationManagerBuilder.class)
-                .userDetailsService(adminService)
+                .userDetailsService(adminServiceImpl)
                 .and()
                 .build();
     }//调用adminService实现搜索admin
