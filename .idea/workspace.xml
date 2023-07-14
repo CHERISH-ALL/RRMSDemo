@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="449d1d31-5ac4-44df-8471-b672bc90097e" name="变更" comment="">
+    <list default="true" id="449d1d31-5ac4-44df-8471-b672bc90097e" name="变更" comment="2021.7.14,part2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/registerPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/registerPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/views/welcomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/views/welcomeView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +108,7 @@
       <recent name="F:\IDEA Code\RRMSdemo\RRMS-frontend\src\picture" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.RrmsBackendApplication">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="RrmsBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <option name="ENABLE_LAUNCH_OPTIMIZATION" value="false" />
@@ -153,7 +156,7 @@
       <workItem from="1689147462749" duration="10901000" />
       <workItem from="1689209153537" duration="5675000" />
       <workItem from="1689214891875" duration="5825000" />
-      <workItem from="1689297689267" duration="6817000" />
+      <workItem from="1689297689267" duration="11119000" />
     </task>
     <task id="LOCAL-00001" summary="创建项目">
       <created>1689073430487</created>
@@ -232,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689304648807</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="2021.7.14,part1">
+      <created>1689304758814</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1689304758814</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

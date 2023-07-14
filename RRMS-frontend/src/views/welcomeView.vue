@@ -9,13 +9,14 @@
       <div style="text-shadow: 0 0 10px black;font-size:30px;">欢迎来到科研室登陆系统</div>
       <div style="margin-top: 10px">在这里你可以参与科研课题</div>
     </div>
-    <div style="width: 500px;background-color:white">
+    <div style="width: 500px;background-color:white;z-index:1">
       <!--引入动态效果-->
-      <transition name="el-fade-in-linear">
-        <!--之后的内容在路由中寻找-->
-        <router-view/>
-      </transition>
-
+      <!--之后的内容在路由中寻找-->
+      <router-view v-slot="{ Component }">
+        <transition name="el-fade-in-linear">
+          <component :is="Component"/>
+        </transition>
+      </router-view>
     </div>
   </div>
 </template>
