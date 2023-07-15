@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="449d1d31-5ac4-44df-8471-b672bc90097e" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/impl/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/impl/AdminServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/eneity/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/eneity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/mapper/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/AdminService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/impl/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/loginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/loginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/registerPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/registerPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/views/indexView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/views/indexView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,39 +78,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.16.1&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.16.1&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/IDEA Code/RRMSdemo&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;全局库&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;d92298d84bcb0f39c0c7ee3dcd1ef659&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;F:\\IntelliJ IDEA 2022.1.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "javascript.nodejs.core.library.configured.version": "18.16.1",
+    "javascript.nodejs.core.library.typings.version": "18.16.1",
+    "jdk.selected.JAVA_MODULE": "19",
+    "last_opened_file_path": "F:/IDEA Code/RRMSdemo",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "全局库",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.语言默认值",
+    "spring.configuration.checksum": "d92298d84bcb0f39c0c7ee3dcd1ef659",
+    "ts.external.directory.path": "F:\\IntelliJ IDEA 2022.1.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -108,7 +121,7 @@
       <recent name="F:\IDEA Code\RRMSdemo\RRMS-frontend\src\picture" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.RrmsBackendApplication">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="RrmsBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <option name="ENABLE_LAUNCH_OPTIMIZATION" value="false" />
@@ -160,6 +173,9 @@
       <workItem from="1689319713529" duration="9858000" />
       <workItem from="1689329679021" duration="1111000" />
       <workItem from="1689330838546" duration="3429000" />
+      <workItem from="1689347877500" duration="219000" />
+      <workItem from="1689386724654" duration="288000" />
+      <workItem from="1689387032070" duration="9191000" />
     </task>
     <task id="LOCAL-00001" summary="创建项目">
       <created>1689073430487</created>
@@ -259,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689333938027</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="2021.7.14,part4">
+      <created>1689348052999</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1689348052999</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,21 +342,11 @@
     <MESSAGE value="2021.7.14,part1" />
     <MESSAGE value="2021.7.14,part2" />
     <MESSAGE value="2021.7.14,part3" />
-    <option name="LAST_COMMIT_MESSAGE" value="2021.7.14,part3" />
+    <MESSAGE value="2021.7.14,part4" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021.7.14,part4" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/RRMS-frontend/src/components/welcome/registerPage.vue</url>
-          <line>2</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

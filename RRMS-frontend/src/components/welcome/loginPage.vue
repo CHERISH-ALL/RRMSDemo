@@ -10,7 +10,7 @@
       <div style="font-size: 14px;color: gray">进入系统前请先输入用户名和密码登录</div>
     </div>
     <div style="margin-top: 50px">
-      <el-input v-model="form.username" placeholder="用户名登录" style="margin: 10px" type="text">
+      <el-input v-model="form.username" placeholder="用户名/邮箱登录" style="margin: 10px" type="text">
         <template #prefix>
           <el-icon>
             <User/>

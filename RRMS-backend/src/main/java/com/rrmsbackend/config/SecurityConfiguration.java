@@ -2,7 +2,7 @@ package com.rrmsbackend.config;
 
 import com.alibaba.fastjson.JSONObject;
 import com.rrmsbackend.eneity.RestBean;
-import com.rrmsbackend.service.impl.AdminServiceImpl;
+import com.rrmsbackend.service.impl.UserServiceImpl;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,6 +15,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
@@ -29,7 +30,7 @@ import java.io.IOException;
 @EnableWebSecurity
 public class SecurityConfiguration {
     @Resource
-    AdminServiceImpl adminServiceImpl;
+    UserServiceImpl userService;
 
     @Resource
     DataSource dataSource;
@@ -69,6 +70,7 @@ public class SecurityConfiguration {
     public PersistentTokenRepository tokenRepository() {
         JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
         jdbcTokenRepository.setDataSource(dataSource);
+//        jdbcTokenRepository.setCreateTableOnStartup(true);//建立 记住我 数据库
         jdbcTokenRepository.setCreateTableOnStartup(false);
         return jdbcTokenRepository;
     }//实现‘记住我’
@@ -89,10 +91,15 @@ public class SecurityConfiguration {
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity security) throws Exception {
         return security.getSharedObject(AuthenticationManagerBuilder.class)
-                .userDetailsService(adminServiceImpl)
+                .userDetailsService(userService)
                 .and()
                 .build();
-    }//调用adminService实现搜索admin
+    }//调用userService实现搜索user
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }//调用密码加密
 
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         response.setCharacterEncoding("utf-8");

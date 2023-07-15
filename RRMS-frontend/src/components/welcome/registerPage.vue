@@ -23,7 +23,7 @@
         <!--                  </el-input>-->
         <!--        </el-form-item>-->
         <el-form-item prop="username">
-          <el-input v-model="form.username" placeholder="用户名" type="text">
+          <el-input v-model="form.username" :maxlength="16" placeholder="用户名" type="text">
             <template #prefix>
               <el-icon>
                 <User/>
@@ -32,7 +32,7 @@
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input v-model="form.password" placeholder="密码" type="password">
+          <el-input v-model="form.password" :maxlength="16" placeholder="密码" type="password">
             <template #prefix>
               <el-icon>
                 <Lock/>
@@ -63,7 +63,7 @@
             <el-row :gutter="15">
               <!--设置两个框的间隔-->
               <el-col :span="18">
-                <el-input v-model="form.code" placeholder="请输入验证码" type="text">
+                <el-input v-model="form.code" :maxlength="6" placeholder="请输入验证码" type="text">
                   <template #prefix>
                     <el-icon>
                       <Edit/>
@@ -72,7 +72,9 @@
                 </el-input>
               </el-col>
               <el-col :span="6">
-                <el-button :disabled="!isEmailValid" type="success" @click="validateEmail">获取验证码</el-button>
+                <el-button :disabled="!isEmailValid||coldTime > 0" type="success" @click="validateEmail">
+                  {{ coldTime > 0 ? "请稍后" + coldTime + "秒" : "获取验证码" }}
+                </el-button>
               </el-col>
             </el-row>
           </div>
@@ -148,6 +150,7 @@ const rules = {
 //未输入合法邮箱之前 不能获取验证码
 const isEmailValid = ref(false)
 const formRef = ref()
+const coldTime = ref(0)
 
 //没次验证邮箱更新情况
 const onValidate = (prop, isValid) => {
@@ -161,6 +164,15 @@ const onValidate = (prop, isValid) => {
 const register = () => {
   formRef.value.validate((isValid) => {
     if (isValid) {
+      post('/api/auth/register', {//向后端发起请求
+        username: form.username,
+        password: form.password,
+        email: form.email,
+        code: form.code
+      }, (message) => {
+        ElMessage.success(message);
+        router.push("/")
+      })
     } else {
       ElMessage.warning('请完整填写上述表单内容')
     }
@@ -173,8 +185,11 @@ const validateEmail = () => {
     email: form.email
   }, (message) => {
     ElMessage.success(message);
+    coldTime.value = 60
+    setInterval(() => coldTime.value--, 1000)//设定定时器
   })
 }
+
 </script>
 
 <style scoped>
