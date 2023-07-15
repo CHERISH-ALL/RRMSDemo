@@ -12,18 +12,8 @@
       <!--定义校验规则-->
       <!--@validate:绑定事件-->
       <el-form ref="formRef" :model="form" :rules="rules" @validate="onValidate">
-        <!--        <el-form-item>-->
-        <!--          输入基本信息-->
-        <!--                  <el-input v-model="form." type="text" placeholder="学号" style="margin-top: 10px">-->
-        <!--                    <template #prefix>-->
-        <!--                      <el-icon>-->
-        <!--                        <User/>-->
-        <!--                      </el-icon>-->
-        <!--                    </template>-->
-        <!--                  </el-input>-->
-        <!--        </el-form-item>-->
         <el-form-item prop="username">
-          <el-input v-model="form.username" :maxlength="16" placeholder="用户名" type="text">
+          <el-input v-model="form.username" :maxlength="16" placeholder="请输入用户名" type="text">
             <template #prefix>
               <el-icon>
                 <User/>
@@ -32,7 +22,7 @@
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input v-model="form.password" :maxlength="16" placeholder="密码" type="password">
+          <el-input v-model="form.password" :maxlength="16" placeholder="请输入密码" type="password">
             <template #prefix>
               <el-icon>
                 <Lock/>
@@ -41,7 +31,7 @@
           </el-input>
         </el-form-item>
         <el-form-item prop="password_repeat">
-          <el-input v-model="form.password_repeat" placeholder="重复密码" type="password">
+          <el-input v-model="form.password_repeat" placeholder="请重复密码" type="password">
             <template #prefix>
               <el-icon>
                 <Lock/>
@@ -50,7 +40,7 @@
           </el-input>
         </el-form-item>
         <el-form-item prop="email">
-          <el-input v-model="form.email" placeholder="电子邮件地址" type="email">
+          <el-input v-model="form.email" placeholder="请输入电子邮件地址" type="email">
             <template #prefix>
               <el-icon>
                 <Message/>
@@ -96,6 +86,7 @@ import router from "@/router"
 import {reactive, ref} from "vue";
 import {ElMessage} from "element-plus";
 import {post} from "@/net";
+import {Edit, Lock, Message, User} from '@element-plus/icons-vue';
 
 const form = reactive({
   username: '',
@@ -115,6 +106,7 @@ const validateUsername = (rule, value, callback) => {
   }
 }
 
+//重复密码校验
 const validatePassword_repeat = (rule, value, callback) => {
   if (value === '') {
     callback(new Error('请重新输入密码'))
@@ -152,13 +144,12 @@ const isEmailValid = ref(false)
 const formRef = ref()
 const coldTime = ref(0)
 
-//没次验证邮箱更新情况
+//每次验证邮箱更新情况
 const onValidate = (prop, isValid) => {
   if (prop === 'email') {
     isEmailValid.value = isValid;
   }
 }
-
 
 //信息完全正确后允许注册
 const register = () => {

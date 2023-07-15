@@ -13,7 +13,7 @@
       <!--引入动态效果-->
       <!--之后的内容在路由中寻找-->
       <router-view v-slot="{ Component }">
-        <transition name="el-fade-in-linear">
+        <transition mode="out-in" name="el-fade-in-linear">
           <component :is="Component"/>
         </transition>
       </router-view>

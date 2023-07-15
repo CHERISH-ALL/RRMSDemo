@@ -15,6 +15,10 @@ const router = createRouter({
       path: 'register',
       name: 'welcome-register',
       component: () => import('@/components/welcome/registerPage.vue'),
+    }, {
+      path: 'forget',
+      name: 'welcome-forget',
+      component: () => import('@/components/welcome/forgetPage.vue'),
     }]
   }, {
     path: '/index',
