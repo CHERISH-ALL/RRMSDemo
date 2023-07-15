@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
         if (username == null) {
             throw new UsernameNotFoundException("用户名不能为空");
         }
-        User user = userMapper.findAdminByUsernameOrEmail(username);
+        User user = userMapper.findUserByUsernameOrEmail(username);
         if (user == null) {
             throw new UsernameNotFoundException("用户名或密码错误");
         }
@@ -56,13 +56,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String sendValidateEmail(String email, String sessionId) {
-        String key = "email:" + sessionId + ":" + email;
+    public String sendValidateEmail(String email, String sessionId, boolean hasUser) {
+        String key = "email:" + sessionId + ":" + email + ":" + hasUser;
         if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(key))) {
             long expire = Optional.ofNullable(stringRedisTemplate.getExpire(key, TimeUnit.SECONDS)).orElse(0L);
             if (expire > 120) return "请求频繁，请稍后再试";
         }
-        if (userMapper.findAdminByUsernameOrEmail(email) != null) {//账号已经被注册过了
+        User user = userMapper.findUserByUsernameOrEmail(email);
+        if (hasUser && user == null) {
+            return "没有此邮件地址的账户";
+        }
+        if (!hasUser && user != null) {
             return "此邮箱已被其他用户注册";
         }
         Random random = new Random();
@@ -84,16 +88,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String validateAndRegister(String username, String password, String email, String code, String sessionId) {
-        String key = "email:" + sessionId + ":" + email;
+        String key = "email:" + sessionId + ":" + email + ":false";
         if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(key))) {//做过验证
             String s = stringRedisTemplate.opsForValue().get(key);
             if (s == null) {//验证超时
                 return "验证码失效，请重新获取";
             }
             if (s.equals(code)) {//对比验证码
+                User user = userMapper.findUserByUsernameOrEmail(username);
+                if (user != null) {
+                    return "此用户名已被注册，请更换用户名";
+                }
+                stringRedisTemplate.delete(key);//删除redis中的key
                 password = encoder.encode(password);
                 if (userMapper.createUser(username, password, email) > 0) {//插入成功
-                    return null;//
+                    return null;
                 } else {
                     return "内部错误，请联系管理员";
                 }
@@ -103,5 +112,30 @@ public class UserServiceImpl implements UserService {
         } else {
             return "请先获取验证码";
         }
+    }
+
+    @Override
+    public String validateOnly(String email, String code, String sessionId) {
+        String key = "email:" + sessionId + ":" + email + ":true";
+        if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(key))) {//做过验证
+            String s = stringRedisTemplate.opsForValue().get(key);
+            if (s == null) {//验证超时
+                return "验证码失效，请重新获取";
+            }
+            if (s.equals(code)) {//对比验证码
+                stringRedisTemplate.delete(key);
+                return null;
+            } else {
+                return "验证码错误，请检查后再提交";
+            }
+        } else {
+            return "请先获取验证码";
+        }
+    }
+
+    @Override
+    public Boolean resetPassword(String password, String email) {
+        password = encoder.encode(password);
+        return userMapper.resetPasswordByEmail(password, email) > 0;
     }
 }//验证和注册

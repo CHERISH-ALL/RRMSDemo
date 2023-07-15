@@ -46,7 +46,7 @@
             </el-form-item>
           </el-form>
           <div style="margin-top: 40px">
-            <el-button plain style="width: 270px;" type="danger" @click="active = 1">开始重置密码</el-button>
+            <el-button plain style="width: 270px;" type="danger" @click="startRest()">开始重置密码</el-button>
           </div>
         </div>
       </transition>
@@ -73,7 +73,7 @@
             </el-form-item>
           </el-form>
           <div style="margin-top: 40px">
-            <el-button plain style="width: 270px;" type="danger" @click="active = 1">立即重制密码</el-button>
+            <el-button plain style="width: 270px;" type="danger" @click="doReset()">立即重置密码</el-button>
           </div>
         </div>
       </transition>
@@ -86,6 +86,7 @@ import {Edit, Lock, Message} from '@element-plus/icons-vue';
 import {reactive, ref} from "vue";
 import {post} from "@/net";
 import {ElMessage} from "element-plus";
+import router from "@/router";
 
 const active = ref(0);
 
@@ -109,7 +110,7 @@ const onValidate = (prop, isValid) => {
 
 //获取验证码
 const validateEmail = () => {
-  post('api/auth/valid-email', {
+  post('api/auth/valid-reset-email', {
     email: form.email
   }, (message) => {
     ElMessage.success(message);
@@ -146,6 +147,37 @@ const rules = {
     {validator: validatePassword_repeat, trigger: ['blur', 'change']}
   ],
 }
+
+const startRest = () => {
+  formRef.value.validate((isValid) => {
+    if (isValid) {
+      post('api/auth/start-reset', {
+        email: form.email,
+        code: form.code,
+      }, () => {
+        active.value++;
+      })
+    } else {
+      ElMessage.warning('请填写邮件地址和验证码')
+    }
+  })
+}
+
+const doReset = () => {
+  formRef.value.validate((isValid) => {
+    if (isValid) {
+      post('api/auth/do-reset', {
+        password: form.password
+      }, () => {
+        ElMessage.success('密码重置成功')
+        router.push('/')
+      })
+    } else {
+      ElMessage.warning('请填写新密码')
+    }
+  })
+}
+
 
 </script>
 

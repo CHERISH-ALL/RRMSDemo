@@ -4,12 +4,16 @@ import com.rrmsbackend.eneity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface UserMapper {
     @Select("select * from user where username = #{text} or email = #{text}")
-    User findAdminByUsernameOrEmail(String text);
+    User findUserByUsernameOrEmail(String text);
 
     @Insert("insert into user (username , password , email) values(#{username} , #{password} , #{email})")
     int createUser(String username, String password, String email);
+
+    @Update("update user set password = #{password} where email = #{email}")
+    int resetPasswordByEmail(String password, String email);
 }

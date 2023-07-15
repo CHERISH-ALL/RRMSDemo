@@ -26,10 +26,21 @@ public class UserController {
     @Resource
     UserService userService;
 
-    @PostMapping("/valid-email")//验证邮件
-    public RestBean<String> validateEmail(@Pattern(regexp = EMAIL_REGEXP)
-                                          @RequestParam("email") String email, HttpSession httpSession) {
-        String s = userService.sendValidateEmail(email, httpSession.getId());
+    @PostMapping("/valid-register-email")//校验注册邮箱
+    public RestBean<String> validateRegisterEmail(@Pattern(regexp = EMAIL_REGEXP)
+                                                  @RequestParam("email") String email, HttpSession httpSession) {
+        String s = userService.sendValidateEmail(email, httpSession.getId(), false);
+        if (s == null) {
+            return RestBean.success("邮件已发送,请注意查收");
+        } else {
+            return RestBean.failure(400, s);
+        }
+    }
+
+    @PostMapping("/valid-reset-email")//校验重置邮箱
+    public RestBean<String> validateResetEmail(@Pattern(regexp = EMAIL_REGEXP)
+                                               @RequestParam("email") String email, HttpSession httpSession) {
+        String s = userService.sendValidateEmail(email, httpSession.getId(), true);
         if (s == null) {
             return RestBean.success("邮件已发送,请注意查收");
         } else {
@@ -38,7 +49,8 @@ public class UserController {
     }
 
     @PostMapping("/register")//注册功能
-    public RestBean<String> registerUser(@Pattern(regexp = USERNAME_REGEXP) @Length(min = 2, max = 16) @RequestParam("username") String username,
+    public RestBean<String> registerUser(@Pattern(regexp = USERNAME_REGEXP)
+                                         @Length(min = 2, max = 16) @RequestParam("username") String username,
                                          @Length(min = 6, max = 16) @RequestParam("password") String password,
                                          @Pattern(regexp = EMAIL_REGEXP) @RequestParam("email") String email,
                                          @Length(min = 6, max = 6) @RequestParam("code") String code,
@@ -48,6 +60,34 @@ public class UserController {
             return RestBean.success("注册成功,请完成登录");
         } else {
             return RestBean.failure(400, s);
+        }
+    }
+
+
+    @PostMapping("/start-reset")
+    public RestBean<String> startReset(@Pattern(regexp = EMAIL_REGEXP) @RequestParam("email") String email,
+                                       @Length(min = 6, max = 6) @RequestParam("code") String code,
+                                       HttpSession session) {
+        String s = userService.validateOnly(email, code, session.getId());
+        if (s == null) {
+            session.setAttribute("resetPassword", email);
+            return RestBean.success();
+        } else {
+            return RestBean.failure(400, s);
+        }
+    }
+
+    @PostMapping("/do-reset")
+    public RestBean<String> resetPassword(@Length(min = 6, max = 16) @RequestParam("password") String password,
+                                          HttpSession session) {
+        String email = (String) session.getAttribute("resetPassword");
+        if (email == null) {
+            return RestBean.failure(400, "请先完成邮箱验证");
+        } else if (userService.resetPassword(password, email)) {
+            session.removeAttribute("password");
+            return RestBean.success("密码重置成功");
+        } else {
+            return RestBean.failure(500, "内部错误请联系管理员");
         }
     }
 }
