@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="449d1d31-5ac4-44df-8471-b672bc90097e" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/forgetPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4a15097a-e389-4bef-ae0b-0b8895252ae8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4a15097a-e389-4bef-ae0b-0b8895252ae8/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4a15097a-e389-4bef-ae0b-0b8895252ae8/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4a15097a-e389-4bef-ae0b-0b8895252ae8/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4a15097a-e389-4bef-ae0b-0b8895252ae8/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/loginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/loginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/forgetPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/forgetPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/registerPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/registerPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/views/welcomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/views/welcomeView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +35,7 @@
         <option value="CHERISH-ALL &lt;cherish-all@example.com&gt;" />
       </list>
     </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="PUSH_TAGS">
       <GitPushTagMode>
         <option name="argument" value="--tags" />
@@ -118,7 +117,7 @@
       <recent name="F:\IDEA Code\RRMSdemo\RRMS-frontend\src\picture" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.RrmsBackendApplication">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="RrmsBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <option name="ENABLE_LAUNCH_OPTIMIZATION" value="false" />
@@ -173,7 +172,8 @@
       <workItem from="1689347877500" duration="219000" />
       <workItem from="1689386724654" duration="288000" />
       <workItem from="1689387032070" duration="9985000" />
-      <workItem from="1689408280184" duration="3602000" />
+      <workItem from="1689408280184" duration="3772000" />
+      <workItem from="1689412156892" duration="6490000" />
     </task>
     <task id="LOCAL-00001" summary="创建项目">
       <created>1689073430487</created>
@@ -287,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689396498127</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="2021.7.15,part2">
+      <created>1689412072125</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1689412072125</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +356,8 @@
     <MESSAGE value="2021.7.14,part3" />
     <MESSAGE value="2021.7.14,part4" />
     <MESSAGE value="2021.7.15,part1" />
-    <option name="LAST_COMMIT_MESSAGE" value="2021.7.15,part1" />
+    <MESSAGE value="2021.7.15,part2" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021.7.15,part2" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

@@ -77,10 +77,10 @@
           </div>
         </div>
       </transition>
-      <div style="margin-top: 15px">
-        <span style="font-size: 14px;line-height: 14px;color: gray">已有账号？</span>
-        <el-link style="translate:0 -2px" type="primary" @click="router.push('/')">立即登录</el-link>
-      </div>
+    </div>
+    <div style="margin-top: 15px">
+      <span style="font-size: 14px;line-height: 14px;color: gray">已有账号？</span>
+      <el-link style="translate:0 -2px" type="primary" @click="router.push('/')">立即登录</el-link>
     </div>
   </div>
 </template>
