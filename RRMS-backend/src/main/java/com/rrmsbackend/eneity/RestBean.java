@@ -14,18 +14,13 @@ public class RestBean<T> {
         this.message = message;
     }
 
-    private RestBean() {
-    }
-
-    ;// 工具对象私有化
-
     //包装工具方法
     public static <T> RestBean<T> success() {
-        return new RestBean<T>(200, true, null);//登录成功
+        return new RestBean<>(200, true, null);//登录成功
     }
 
     public static <T> RestBean<T> success(T data) {
-        return new RestBean<T>(200, true, data);//登录成功
+        return new RestBean<>(200, true, data);//登录成功
     }
 
     public static <T> RestBean<T> failure(int status, T data) {

@@ -2,7 +2,7 @@ package com.rrmsbackend.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-public interface UserService extends UserDetailsService {
+public interface AuthorizeService extends UserDetailsService {
     //发送邮件
     String sendValidateEmail(String email, String sessionId, boolean hasUser);//发送邮件功能
 

@@ -1,8 +1,8 @@
 package com.rrmsbackend.service.impl;
 
-import com.rrmsbackend.eneity.User;
+import com.rrmsbackend.eneity.auth.Account;
 import com.rrmsbackend.mapper.UserMapper;
-import com.rrmsbackend.service.UserService;
+import com.rrmsbackend.service.AuthorizeService;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 
 @Service
-public class UserServiceImpl implements UserService {
+public class AuthorizeServiceImpl implements AuthorizeService {
 
     @Resource
     UserMapper userMapper;
@@ -44,13 +44,13 @@ public class UserServiceImpl implements UserService {
         if (username == null) {
             throw new UsernameNotFoundException("用户名不能为空");
         }
-        User user = userMapper.findUserByUsernameOrEmail(username);
-        if (user == null) {
+        Account account = userMapper.findAccountByNameOrEmail(username);
+        if (account == null) {
             throw new UsernameNotFoundException("用户名或密码错误");
         }
         return org.springframework.security.core.userdetails.User
-                .withUsername(user.getUsername())
-                .password(user.getPassword())//不加密用{noop}
+                .withUsername(account.getUsername())
+                .password(account.getPassword())//不加密用{noop}
                 .roles("user")
                 .build();
     }
@@ -62,11 +62,11 @@ public class UserServiceImpl implements UserService {
             long expire = Optional.ofNullable(stringRedisTemplate.getExpire(key, TimeUnit.SECONDS)).orElse(0L);
             if (expire > 120) return "请求频繁，请稍后再试";
         }
-        User user = userMapper.findUserByUsernameOrEmail(email);
-        if (hasUser && user == null) {
+        Account account = userMapper.findAccountByNameOrEmail(email);
+        if (hasUser && account == null) {
             return "没有此邮件地址的账户";
         }
-        if (!hasUser && user != null) {
+        if (!hasUser && account != null) {
             return "此邮箱已被其他用户注册";
         }
         Random random = new Random();
@@ -95,13 +95,13 @@ public class UserServiceImpl implements UserService {
                 return "验证码失效，请重新获取";
             }
             if (s.equals(code)) {//对比验证码
-                User user = userMapper.findUserByUsernameOrEmail(username);
-                if (user != null) {
+                Account account = userMapper.findAccountByNameOrEmail(username);
+                if (account != null) {
                     return "此用户名已被注册，请更换用户名";
                 }
                 stringRedisTemplate.delete(key);//删除redis中的key
                 password = encoder.encode(password);
-                if (userMapper.createUser(username, password, email) > 0) {//插入成功
+                if (userMapper.createAccount(username, password, email) > 0) {//插入成功
                     return null;
                 } else {
                     return "内部错误，请联系管理员";

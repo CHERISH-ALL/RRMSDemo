@@ -2,9 +2,8 @@ package com.rrmsbackend.config;
 
 import com.alibaba.fastjson.JSONObject;
 import com.rrmsbackend.eneity.RestBean;
-import com.rrmsbackend.service.impl.UserServiceImpl;
+import com.rrmsbackend.service.impl.AuthorizeServiceImpl;
 import jakarta.annotation.Resource;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
@@ -30,7 +29,7 @@ import java.io.IOException;
 @EnableWebSecurity
 public class SecurityConfiguration {
     @Resource
-    UserServiceImpl userService;
+    AuthorizeServiceImpl authorizeService;
 
     @Resource
     DataSource dataSource;
@@ -91,7 +90,7 @@ public class SecurityConfiguration {
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity security) throws Exception {
         return security.getSharedObject(AuthenticationManagerBuilder.class)
-                .userDetailsService(userService)
+                .userDetailsService(authorizeService)
                 .and()
                 .build();
     }//调用userService实现搜索user
@@ -101,12 +100,12 @@ public class SecurityConfiguration {
         return new BCryptPasswordEncoder();
     }//调用密码加密
 
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         response.setCharacterEncoding("utf-8");
         response.getWriter().write(JSONObject.toJSONString(RestBean.success("登陆成功!")));
     }//登陆成功
 
-    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException {
         response.setCharacterEncoding("utf-8");
         response.getWriter().write(JSONObject.toJSONString(RestBean.failure(401, exception.getMessage())));
     }//登录失败或者未登录

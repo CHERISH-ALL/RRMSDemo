@@ -1,9 +1,9 @@
-package com.rrmsbackend.eneity;
+package com.rrmsbackend.eneity.auth;
 
 import lombok.Data;
 
 @Data
-public class User {
+public class Account {
     String username;
     String password;
     String email;
