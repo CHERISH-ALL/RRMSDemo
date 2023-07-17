@@ -49,20 +49,21 @@ public class AuthorizeController {
     }
 
     @PostMapping("/register")//注册功能
-    public RestBean<String> registerUser(@Pattern(regexp = USERNAME_REGEXP)
+    public RestBean<String> registerUser(@RequestParam("id") long id,
+                                         @RequestParam("identity") String identity,
+                                         @Pattern(regexp = USERNAME_REGEXP)
                                          @Length(min = 2, max = 16) @RequestParam("username") String username,
                                          @Length(min = 6, max = 16) @RequestParam("password") String password,
                                          @Pattern(regexp = EMAIL_REGEXP) @RequestParam("email") String email,
                                          @Length(min = 6, max = 6) @RequestParam("code") String code,
                                          HttpSession httpSession) {
-        String s = authorizeService.validateAndRegister(username, password, email, code, httpSession.getId());
+        String s = authorizeService.validateAndRegister(id, identity, username, password, email, code, httpSession.getId());
         if (s == null) {
             return RestBean.success("注册成功,请完成登录");
         } else {
             return RestBean.failure(400, s);
         }
     }
-
 
     @PostMapping("/start-reset")
     public RestBean<String> startReset(@Pattern(regexp = EMAIL_REGEXP) @RequestParam("email") String email,
@@ -87,7 +88,18 @@ public class AuthorizeController {
             session.removeAttribute("password");
             return RestBean.success("密码重置成功");
         } else {
-            return RestBean.failure(500, "内部错误请联系管理员");
+            return RestBean.failure(400, "内部错误请联系管理员");
+        }
+    }
+
+    @PostMapping("/register-validateIdentity")
+    public RestBean<String> validateId(@RequestParam("id") long id,
+                                       @RequestParam("identity") String identity) {
+        String s = authorizeService.validateIdentity(identity, id);
+        if (s == null) {
+            return RestBean.success("您可以以此身份注册");
+        } else {
+            return RestBean.failure(400, s);
         }
     }
 }
