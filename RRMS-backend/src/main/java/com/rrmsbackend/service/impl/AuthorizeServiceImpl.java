@@ -88,30 +88,30 @@ public class AuthorizeServiceImpl implements AuthorizeService {
 
     @Override
     public String validateAndRegister(long id, String identity, String username, String password, String email, String code, String sessionId) {
-//        String key = "email:" + sessionId + ":" + email + ":false";
-//        if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(key))) {//做过验证
-//            String s = stringRedisTemplate.opsForValue().get(key);
-//            if (s == null) {//验证超时
-//                return "验证码失效，请重新获取";
-//            }
-//            if (s.equals(code)) {//对比验证码
-        Account account = userMapper.findAccountByNameOrEmail(username);
-        if (account != null) {
-            return "此用户名已被注册，请更换用户名";
-        }
-//                stringRedisTemplate.delete(key);//删除redis中的key
-        password = encoder.encode(password);
-        if (userMapper.createAccount(id, identity, username, password, email) > 0) {//插入成功
-            return null;
+        String key = "email:" + sessionId + ":" + email + ":false";
+        if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(key))) {//做过验证
+            String s = stringRedisTemplate.opsForValue().get(key);
+            if (s == null) {//验证超时
+                return "验证码失效，请重新获取";
+            }
+            if (s.equals(code)) {//对比验证码
+                Account account = userMapper.findAccountByNameOrEmail(username);
+                if (account != null) {
+                    return "此用户名已被注册，请更换用户名";
+                }
+                stringRedisTemplate.delete(key);//删除redis中的key
+                password = encoder.encode(password);
+                if (userMapper.createAccount(id, identity, username, password, email) > 0) {//插入成功
+                    return null;
+                } else {
+                    return "内部错误，请联系管理员";
+                }
+            } else {
+                return "验证码错误，请检查后再提交";
+            }
         } else {
-            return "内部错误，请联系管理员";
+            return "请先获取验证码";
         }
-//            } else {
-//                return "验证码错误，请检查后再提交";
-//            }
-//        } else {
-//            return "请先获取验证码";
-//        }
     }
 
     @Override
