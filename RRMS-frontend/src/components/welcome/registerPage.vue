@@ -124,7 +124,7 @@ import router from "@/router"
 import {reactive, ref} from "vue";
 import {ElMessage} from "element-plus";
 import {post} from "@/net";
-import {Edit, Lock, Message, Star, User} from '@element-plus/icons-vue';
+import {Edit, Link, Lock, Message, Star, User} from '@element-plus/icons-vue';
 
 //准备表格
 const form = reactive({

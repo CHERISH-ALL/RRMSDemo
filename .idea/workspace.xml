@@ -5,11 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="449d1d31-5ac4-44df-8471-b672bc90097e" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/student/studentIndex.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RRMS-frontend/src/stores/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/___.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/___1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在变基之前未提交的更改_[变更]1/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/config/WebConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/config/WebConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/eneity/user/AccountUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/eneity/user/AccountUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/controller/AuthorizeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/controller/AuthorizeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/interceptor/AuthorizeInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/interceptor/AuthorizeInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/loginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/loginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/registerPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/registerPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/stores/counter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/views/indexView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/views/indexView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/views/welcomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/views/welcomeView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +36,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Vue Single File Component" />
         <option value="Class" />
+        <option value="Vue Single File Component" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -46,7 +64,6 @@
     <setting file="file://$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/RrmsBackendApplication.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RRMS-backend/src/main/resources/application.properties" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RRMS-frontend/src/router/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RRMS-frontend/src/stores/counter.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -59,7 +76,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2SQJtTyyVB1IMWtrBBo2qS36ipl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -74,6 +91,7 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -178,7 +196,12 @@
       <workItem from="1689605087781" duration="3509000" />
       <workItem from="1689608643125" duration="230000" />
       <workItem from="1689611708827" duration="207000" />
-      <workItem from="1689642748642" duration="2694000" />
+      <workItem from="1689642748642" duration="3319000" />
+      <workItem from="1689646745758" duration="1066000" />
+      <workItem from="1689728479064" duration="16965000" />
+      <workItem from="1689752411001" duration="11617000" />
+      <workItem from="1689815742849" duration="7080000" />
+      <workItem from="1689838284811" duration="321000" />
     </task>
     <task id="LOCAL-00001" summary="创建项目">
       <created>1689073430487</created>
@@ -327,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689611875951</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="2021.7.18,part1">
+      <created>1689645484535</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1689645484535</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +422,8 @@
     <MESSAGE value="2021.7.15,part2" />
     <MESSAGE value="2021.7.15,part3" />
     <MESSAGE value="2021.7.17,part1/2" />
-    <option name="LAST_COMMIT_MESSAGE" value="2021.7.17,part1/2" />
+    <MESSAGE value="2021.7.18,part1" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021.7.18,part1" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

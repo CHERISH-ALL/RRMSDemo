@@ -65,7 +65,7 @@ public class AuthorizeController {
         }
     }
 
-    @PostMapping("/start-reset")
+    @PostMapping("/start-reset")//开始重置
     public RestBean<String> startReset(@Pattern(regexp = EMAIL_REGEXP) @RequestParam("email") String email,
                                        @Length(min = 6, max = 6) @RequestParam("code") String code,
                                        HttpSession session) {
@@ -78,7 +78,7 @@ public class AuthorizeController {
         }
     }
 
-    @PostMapping("/do-reset")
+    @PostMapping("/do-reset")//完成重置
     public RestBean<String> resetPassword(@Length(min = 6, max = 16) @RequestParam("password") String password,
                                           HttpSession session) {
         String email = (String) session.getAttribute("resetPassword");

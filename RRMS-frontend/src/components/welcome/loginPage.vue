@@ -6,7 +6,6 @@
         <el-image fit="cover" src="./src/assets/login/gxunLogo.png"
                   style="width: 100%;height: 100%"/>
       </div>
-      <!--         <div style="font-size: 25px;color: black;font-weight: bold">登录</div>-->
       <div style="font-size: 14px;color: gray">进入系统前请先输入用户名和密码登录</div>
     </div>
     <div style="margin-top: 50px">
@@ -51,8 +50,9 @@
 import {Lock, User} from '@element-plus/icons-vue';
 import {ElMessage} from "element-plus";
 import {reactive} from "vue";
-import {post} from "@/net";
+import {get, post} from "@/net";
 import router from "@/router"
+// import {useStore} from '@/stores'
 
 const form = reactive({
   username: '',
@@ -60,6 +60,8 @@ const form = reactive({
   remember: false
 })//表单默认传递的信息
 
+
+// const store = useStore();
 const login = () => {
   if (!form.username || !form.password) {
     ElMessage.warning('请输入用户名和密码！')
@@ -69,8 +71,8 @@ const login = () => {
       password: form.password,
       remember: form.remember
     }, (message) => {
-      ElMessage.success(message)
-      router.push('/index')
+      ElMessage.success(message);
+      router.push('/index');
     })//获取表单信息并验证转页
   }
 }

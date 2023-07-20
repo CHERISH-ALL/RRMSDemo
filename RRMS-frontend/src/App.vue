@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <!--之后的内容在路由中寻找-->
+  <!--  之后的内容在路由中寻找-->
   <router-view/>
 </template>
 
