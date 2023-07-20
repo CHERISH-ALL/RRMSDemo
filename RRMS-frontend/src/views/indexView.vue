@@ -28,10 +28,6 @@
       </div>
     </div>
     <div style="width: 100vw;height: 100vh">
-      <div
-          style="margin-left:1vw;float:left;margin-top:2vh;align-items: center;justify-content:center;display: flex">
-        <el-button type="danger" @click="logout()">退出登录</el-button>
-      </div>
       <router-view v-slot="{ Component }">
         <transition mode="out-in" name="el-fade-in-linear">
           <component :is="Component"/>
@@ -47,13 +43,18 @@
 import router from "@/router"
 import {ElMessage} from "element-plus";
 import {useStore} from "@/stores";
+import {get} from "@/net";
+
 
 const store = useStore();
 
 const logout = () => {
-  ElMessage.success("退出登录成功");
-  store.auth.user = null;
-  router.push('/');
+  ElMessage.success('退出登录成功');
+  get("/api/user/me", () => {
+    store.auth.user = '';
+    router.push('/');
+  })
+
 }
 </script>
 

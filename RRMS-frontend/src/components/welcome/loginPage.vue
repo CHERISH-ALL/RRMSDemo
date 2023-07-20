@@ -60,8 +60,8 @@ const form = reactive({
   remember: false
 })//表单默认传递的信息
 
-
 const store = useStore();
+
 const login = () => {
   if (!form.username || !form.password) {
     ElMessage.warning('请输入用户名和密码！')
@@ -73,12 +73,12 @@ const login = () => {
     }, (message) => {
       ElMessage.success(message);
       get("/api/user/me", (message) => {
-        store.auth.user = message
-        router.push('/index')
+        store.auth.user = message;
+        router.push('/index');
       })
-    })//获取表单信息并验证转页
+    })
   }
-}
+}//获取表单信息并验证转页
 </script>
 <style scoped>
 

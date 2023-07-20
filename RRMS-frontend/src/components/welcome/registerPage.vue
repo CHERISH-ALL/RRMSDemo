@@ -249,6 +249,9 @@ const validateEmail = () => {
     ElMessage.success(message);
     coldTime.value = 60
     setInterval(() => coldTime.value--, 1000)//设定定时器
+  }, (message) => {
+    ElMessage.success(message);
+    coldTime.value = 0
   })
 }
 

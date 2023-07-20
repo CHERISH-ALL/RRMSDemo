@@ -114,12 +114,15 @@ const onValidate = (prop, isValid) => {
 
 //获取验证码
 const validateEmail = () => {
+  coldTime.value = 60
   post('api/auth/valid-reset-email', {
     email: form.email
   }, (message) => {
     ElMessage.success(message);
-    coldTime.value = 60
     setInterval(() => coldTime.value--, 1000)//设定定时器
+  }, (message) => {
+    ElMessage.success(message);
+    coldTime.value = 0
   })
 }
 
