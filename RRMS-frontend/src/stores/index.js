@@ -1,10 +1,10 @@
 //定义数据仓库
-// import {defineStore} from "pinia";
-// import {reactive} from "vue";
-//
-// export const useStore = defineStore('user',()=>{
-//     const auth =reactive({
-//         user:null
-//     })
-//     return {auth}
-// })
+import {reactive} from 'vue'
+import {defineStore} from 'pinia'
+
+export const useStore = defineStore('store', () => {
+    const auth = reactive({
+        user: null
+    })
+    return {auth}
+})

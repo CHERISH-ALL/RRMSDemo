@@ -51,8 +51,8 @@ import {Lock, User} from '@element-plus/icons-vue';
 import {ElMessage} from "element-plus";
 import {reactive} from "vue";
 import {get, post} from "@/net";
-import router from "@/router"
-// import {useStore} from '@/stores'
+import router from "@/router";
+import {useStore} from '@/stores';
 
 const form = reactive({
   username: '',
@@ -61,7 +61,7 @@ const form = reactive({
 })//表单默认传递的信息
 
 
-// const store = useStore();
+const store = useStore();
 const login = () => {
   if (!form.username || !form.password) {
     ElMessage.warning('请输入用户名和密码！')
@@ -72,7 +72,10 @@ const login = () => {
       remember: form.remember
     }, (message) => {
       ElMessage.success(message);
-      router.push('/index');
+      get("/api/user/me", (message) => {
+        store.auth.user = message
+        router.push('/index')
+      })
     })//获取表单信息并验证转页
   }
 }

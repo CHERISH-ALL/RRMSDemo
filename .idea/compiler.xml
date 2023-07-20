@@ -10,7 +10,7 @@
         <module name="RRMS-backend" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="18">
+    <bytecodeTargetLevel target="17">
       <module name="RRMS-backend" target="17" />
     </bytecodeTargetLevel>
   </component>

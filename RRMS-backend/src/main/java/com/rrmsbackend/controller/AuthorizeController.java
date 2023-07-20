@@ -92,7 +92,7 @@ public class AuthorizeController {
         }
     }
 
-    @PostMapping("/register-validateIdentity")
+    @PostMapping("/register-validateIdentity") //验证登录id和身份
     public RestBean<String> validateId(@RequestParam("id") long id,
                                        @RequestParam("identity") String identity) {
         String s = authorizeService.validateIdentity(identity, id);

@@ -1,5 +1,4 @@
-//拦截器
-package com.rrmsbackend.interceptor;
+package com.rrmsbackend.interceptor;//拦截器
 
 import com.rrmsbackend.eneity.user.AccountUser;
 import com.rrmsbackend.mapper.UserMapper;
@@ -25,9 +24,6 @@ public class AuthorizeInterceptor implements HandlerInterceptor {
         Authentication authentication = context.getAuthentication();
         User user = (User) authentication.getPrincipal();
         String username = user.getUsername();
-        if (username == null) {
-            return false;
-        }
         AccountUser account = userMapper.findAccountUserByNameOrEmail(username);
         request.getSession().setAttribute("account", account);
         return true;

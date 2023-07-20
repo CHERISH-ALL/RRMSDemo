@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 @RequestMapping("/api/user")
 public class UserController {
     @GetMapping("/me")
-    public RestBean<AccountUser> me(@SessionAttribute("account") AccountUser accountUser) {
-        return RestBean.success(accountUser);
+    public RestBean<AccountUser> me(@SessionAttribute("account") AccountUser user) {
+        return RestBean.success(user);
     }
 }

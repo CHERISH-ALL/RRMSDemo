@@ -1,8 +1,9 @@
 //封装登录功能并暴露接口
+
 import axios from "axios";
 import {ElMessage} from "element-plus";
 
-const defaultError = () => ElMessage.error('发生错误，请联系管理员')
+const defaultError = () => ElMessage.error('发生了一些错误，请联系管理员')
 const defaultFailure = (message) => ElMessage.warning(message)
 
 function post(url, data, success, failure = defaultFailure, error = defaultError) {
@@ -12,24 +13,22 @@ function post(url, data, success, failure = defaultFailure, error = defaultError
         },
         withCredentials: true
     }).then(({data}) => {
-        if (data.success) {
+        if (data.success)
             success(data.message, data.status)
-        } else {
+        else
             failure(data.message, data.status)
-        }
-    }).catch(() => error)
+    }).catch(error)
 }
 
 function get(url, success, failure = defaultFailure, error = defaultError) {
-    axios.post(url, {
+    axios.get(url, {
         withCredentials: true
     }).then(({data}) => {
-        if (data.success) {
+        if (data.success)
             success(data.message, data.status)
-        } else {
+        else
             failure(data.message, data.status)
-        }
-    }).catch(() => error)
+    }).catch(error)
 }
 
 export {get, post}
