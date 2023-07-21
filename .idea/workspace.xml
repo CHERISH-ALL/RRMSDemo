@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="449d1d31-5ac4-44df-8471-b672bc90097e" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023_7_15_19_10____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2023_7_15_19_10____.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/components/student/studentIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/student/studentIndex.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/stores/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/stores/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/views/indexView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/views/indexView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/views/welcomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/views/welcomeView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -370,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689849140366</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="2023.7.21,part1">
+      <created>1689904351029</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1689904351030</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,10 +441,22 @@
     <MESSAGE value="2021.7.18,part1" />
     <MESSAGE value="2021.7.20,part1" />
     <MESSAGE value="2023.7.20,part2" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023.7.20,part2" />
+    <MESSAGE value="2023.7.21,part1" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023.7.21,part1" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/RRMS-frontend/src/components/student/studentIndex.vue</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
