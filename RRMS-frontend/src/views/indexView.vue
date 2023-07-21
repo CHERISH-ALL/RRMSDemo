@@ -6,8 +6,8 @@
         <el-image fit="cover" src="./src/assets/login/gxunLogo.png"
                   style="max-width: 100%;height:100%;object-fit: cover"/>
       </div>
-      <div style="float: left;width: 40vw;height: 10vh;"></div>
 
+      <div style="float: left;width: 40vw;height: 10vh;"></div>
 
       <div style="float:left;width: 35vw;height: 10vh;">
         <div style="margin-left: 0.5vw;margin-top:1vh;width: 34vw;height: 8vh">
@@ -26,6 +26,7 @@
           </div>
         </div>
       </div>
+
     </div>
     <div style="width: 100vw;height: 100vh">
       <router-view v-slot="{ Component }">
@@ -49,9 +50,9 @@ import {get} from "@/net";
 const store = useStore();
 
 const logout = () => {
-  ElMessage.success('退出登录成功');
-  get("/api/user/me", () => {
-    store.auth.user = '';
+  get("/api/auth/logout", () => {
+    ElMessage.success('退出登录成功');
+    store.auth.user = 'null';
     router.push('/');
   })
 

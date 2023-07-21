@@ -39,9 +39,9 @@ const router = createRouter({
 //添加路由守卫
 router.beforeEach((to, from, next) => {
     const store = useStore();
-    if (store.auth.user != '' && to.name.startsWith('welcome-')) {
+    if (store.auth.user !== 'null' && to.name.startsWith('welcome-')) {
         next('/index');
-    } else if (store.auth.user == '' && to.fullPath.startsWith('/index')) {
+    } else if (store.auth.user === 'null' && to.fullPath.startsWith('/index')) {
         next('/')
     } else if (to.matched.length === 0) {
         next('/index')

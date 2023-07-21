@@ -2,7 +2,7 @@ package com.rrmsbackend.config;
 
 import com.alibaba.fastjson.JSONObject;
 import com.rrmsbackend.eneity.RestBean;
-import com.rrmsbackend.service.impl.AuthorizeServiceImpl;
+import com.rrmsbackend.service.AuthorizeService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -29,16 +29,17 @@ import java.io.IOException;
 @EnableWebSecurity
 public class SecurityConfiguration {
     @Resource
-    AuthorizeServiceImpl authorizeService;
+    AuthorizeService authorizeService;
 
     @Resource
     DataSource dataSource;
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity httpSecurity, PersistentTokenRepository repository) throws Exception {
-        return httpSecurity
+    public SecurityFilterChain filterChain(HttpSecurity http,
+                                           PersistentTokenRepository repository) throws Exception {
+        return http
                 .authorizeHttpRequests()
-                .requestMatchers("api/auth/**").permitAll()
+                .requestMatchers("/api/auth/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -48,11 +49,12 @@ public class SecurityConfiguration {
                 .and()
                 .logout()
                 .logoutUrl("/api/auth/logout")
+                .logoutSuccessHandler(this::onAuthenticationSuccess)
                 .and()
                 .rememberMe()
-                .rememberMeParameter("remember")//调用记住我的功能
-                .tokenRepository(repository)//使用记住我的jdbc存储位置
-                .tokenValiditySeconds(3600 * 24 * 7)//记住我的存储时间
+                .rememberMeParameter("remember")
+                .tokenRepository(repository)
+                .tokenValiditySeconds(3600 * 24 * 7)
                 .and()
                 .csrf()
                 .disable()
@@ -89,7 +91,8 @@ public class SecurityConfiguration {
 
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity security) throws Exception {
-        return security.getSharedObject(AuthenticationManagerBuilder.class)
+        return security
+                .getSharedObject(AuthenticationManagerBuilder.class)
                 .userDetailsService(authorizeService)
                 .and()
                 .build();
@@ -102,8 +105,11 @@ public class SecurityConfiguration {
 
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         response.setCharacterEncoding("utf-8");
-        response.getWriter().write(JSONObject.toJSONString(RestBean.success("登录成功!")));
-    }//登陆成功
+        if (request.getRequestURI().endsWith("/login"))
+            response.getWriter().write(JSONObject.toJSONString(RestBean.success("登录成功")));
+        else if (request.getRequestURI().endsWith("/logout"))
+            response.getWriter().write(JSONObject.toJSONString(RestBean.success("退出登录成功")));
+    }//登陆成功和退出登录
 
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException {
         response.setCharacterEncoding("utf-8");
