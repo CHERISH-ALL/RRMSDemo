@@ -52,12 +52,13 @@ public class AuthorizeController {
     public RestBean<String> registerUser(@RequestParam("id") long id,
                                          @RequestParam("identity") String identity,
                                          @Pattern(regexp = USERNAME_REGEXP)
-                                         @Length(min = 2, max = 16) @RequestParam("username") String username,
+                                             @Length(min = 2, max = 16) @RequestParam("username") String username,
+                                         String userRealName,
                                          @Length(min = 6, max = 16) @RequestParam("password") String password,
                                          @Pattern(regexp = EMAIL_REGEXP) @RequestParam("email") String email,
                                          @Length(min = 6, max = 6) @RequestParam("code") String code,
                                          HttpSession httpSession) {
-        String s = authorizeService.validateAndRegister(id, identity, username, password, email, code, httpSession.getId());
+        String s = authorizeService.validateAndRegister(id, identity, username, userRealName, password, email, code, httpSession.getId());
         if (s == null) {
             return RestBean.success("注册成功,请完成登录");
         } else {
@@ -96,10 +97,10 @@ public class AuthorizeController {
     public RestBean<String> validateId(@RequestParam("id") long id,
                                        @RequestParam("identity") String identity) {
         String s = authorizeService.validateIdentity(identity, id);
-        if (s == null) {
-            return RestBean.success("您可以以此身份注册");
-        } else {
+        if (s.equals("此身份码已被注册") || s.equals("您没有注册此账号的权限")) {
             return RestBean.failure(400, s);
+        } else {
+            return RestBean.success(s);
         }
     }
 }

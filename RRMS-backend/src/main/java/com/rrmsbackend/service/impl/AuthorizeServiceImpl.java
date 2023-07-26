@@ -87,7 +87,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
     }
 
     @Override
-    public String validateAndRegister(long id, String identity, String username, String password, String email, String code, String sessionId) {
+    public String validateAndRegister(long id, String identity, String username, String userRealName, String password, String email, String code, String sessionId) {
         String key = "email:" + sessionId + ":" + email + ":false";
         if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(key))) {//做过验证
             String s = stringRedisTemplate.opsForValue().get(key);
@@ -101,7 +101,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
                 }
                 stringRedisTemplate.delete(key);//删除redis中的key
                 password = encoder.encode(password);
-                if (userMapper.createAccount(id, identity, username, password, email) > 0) {//插入成功
+                if (userMapper.createAccount(id, identity, username, userRealName, password, email) > 0) {//插入成功
                     return null;
                 } else {
                     return "内部错误，请联系管理员";
@@ -135,7 +135,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
 
     @Override
     public String validateIdentity(String identity, long id) {
-        Account account = userMapper.findAccountFromUserById(id);//查找现有的账号
+        String account = userMapper.findAccountFromUserById(id);//查找现有的账号
         if (account != null) {
             return "此身份码已被注册";
         }
@@ -151,7 +151,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
         if (account == null) {
             return "您没有注册此账号的权限";
         }
-        return null;
+        return account;
     }
 
     @Override

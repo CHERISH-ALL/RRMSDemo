@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="449d1d31-5ac4-44df-8471-b672bc90097e" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/46697e76-9cc5-41ff-9e54-2c5d6264e06e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/46697e76-9cc5-41ff-9e54-2c5d6264e06e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023_7_15_19_10____.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023_7_15_19_10_取消提交了变更_[变更]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/components/student/studentIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/student/studentIndex.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/controller/AuthorizeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/controller/AuthorizeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/eneity/auth/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/eneity/auth/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/AuthorizeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/AuthorizeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/impl/AuthorizeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/impl/AuthorizeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/registerPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/components/welcome/registerPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RRMS-frontend/src/views/indexView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/RRMS-frontend/src/views/indexView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -197,6 +208,7 @@
       <workItem from="1689752411001" duration="11617000" />
       <workItem from="1689815742849" duration="7080000" />
       <workItem from="1689838284811" duration="11854000" />
+      <workItem from="1690353153291" duration="834000" />
     </task>
     <task id="LOCAL-00001" summary="创建项目">
       <created>1689073430487</created>
@@ -452,8 +464,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/RRMS-frontend/src/components/student/studentIndex.vue</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RRMS-backend/src/main/java/com/rrmsbackend/service/impl/AuthorizeServiceImpl.java</url>
+          <line>137</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

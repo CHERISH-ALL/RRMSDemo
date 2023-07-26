@@ -153,7 +153,6 @@
           </el-sub-menu>
         </el-menu>
       </div>
-      <div style="float:left;width: 85vw;height: 90vh;background-color:red">123</div>
     </div>
   </div>
 
@@ -182,26 +181,6 @@ const logout = () => {
 }
 
 </script>
-
-<!--<script>
-import {useStore} from "@/stores";
-
-const store = useStore();
-export default{
-  methods:{
-    myFunction(){
-      if(store.auth.user.identity.value().equals('admin')){
-        isChangeStudent.value=true;
-      }
-    }
-  },
-  mounted() {
-    this.myFunction();
-  }
-}
-
-
-</script>-->
 
 <style scoped>
 </style>

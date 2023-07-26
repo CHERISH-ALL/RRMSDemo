@@ -16,24 +16,24 @@ public interface UserMapper {
     AccountUser findAccountUserByNameOrEmail(String text);
 
 
-    @Select("select * from user where id = #{id}")
-    Account findAccountFromUserById(long id);
+    @Select("select username from user where id = #{id}")
+    String findAccountFromUserById(long id);
 
 
-    @Select("select * from admin where id = #{id}")
-    Account findAccountFromAdminById(long id);
+    @Select("select aName from admin where id = #{id}")
+    String findAccountFromAdminById(long id);
 
 
-    @Select("select * from teacher where id = #{id}")
-    Account findAccountFromTeacherById(long id);
+    @Select("select tName from teacher where id = #{id}")
+    String findAccountFromTeacherById(long id);
 
 
-    @Select("select * from student where id = #{id}")
-    Account findAccountFromStudentById(long id);
+    @Select("select sName from student where id = #{id}")
+    String findAccountFromStudentById(long id);
 
 
-    @Insert("insert into user (id , identity , username , password , email) values(#{id} , #{identity} , #{username} , #{password} , #{email})")
-    int createAccount(long id, String identity, String username, String password, String email);
+    @Insert("insert into user (id , identity , username, userRealName , password , email) values(#{id} , #{identity} , #{username}, #{userRealName} , #{password} , #{email})")
+    int createAccount(long id, String identity, String username, String userRealName, String password, String email);
 
 
     @Update("update user set password = #{password} where email = #{email}")

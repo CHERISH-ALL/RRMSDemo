@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="rrmsdemotest@localhost" uuid="46697e76-9cc5-41ff-9e54-2c5d6264e06e">
+    <data-source source="LOCAL" name="rrms@localhost" uuid="3f6dd1a7-497d-4ad1-8c99-07c0701651ae">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/rrmsdemotest</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/rrms</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

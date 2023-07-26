@@ -203,7 +203,8 @@ const validateIdentity = () => {
     id: form.id,
     identity: form.identity,
   }, (message) => {
-    ElMessage.success(message);
+    ElMessage.success("可以使用此身份码注册");
+    form.userRealName = message;
     isIdValid.value = true;
   }, (message) => {
     ElMessage.warning(message);
@@ -227,6 +228,7 @@ const register = () => {
         id: form.id,
         identity: form.identity,
         username: form.username,
+        userRealName: form.userRealName,
         password: form.password,
         email: form.email,
         code: form.code
