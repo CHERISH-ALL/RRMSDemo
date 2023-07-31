@@ -139,3 +139,7 @@ Date:2023.7.31 part1
 
 * 完成menu+router的项目测试
 * 准备完善以上相关功能界面
+
+date:2023.7.31 part2
+
+* 完成menu+router前端功能

@@ -38,6 +38,86 @@ const router = createRouter({
                 path: '/changeUserInformation',
                 name: 'index-changeUserInformation',
                 component: () => import ('@/components/function/userInformation/changeUserInformation.vue')
+            }, {
+                path: '/searchStudentInformationByObject',
+                name: 'index-searchStudentInformationByObject',
+                component: () => import('@/components/function/student/searchStudentInformationByObject.vue')
+            }, {
+                path: '/searchStudentInformationByStudent',
+                name: 'index-searchStudentInformationByStudent',
+                component: () => import('@/components/function/student/searchStudentInformationByStudent.vue')
+            }, {
+                path: '/changeStudentInformation',
+                name: 'index-changeStudentInformation',
+                component: () => import('@/components/function/student/changeStudentInformation.vue')
+            }, {
+                path: '/searchRecordByLaboratory',
+                name: 'index-searchRecordByLaboratory',
+                component: () => import('@/components/function/record/searchRecordByLaboratory.vue')
+            }, {
+                path: '/searchRecordByStudent',
+                name: 'index-searchRecordByStudent',
+                component: () => import('@/components/function/record/searchRecordByStudent.vue')
+            }, {
+                path: '/submitEquipmentApplication',
+                name: 'index-submitEquipmentApplication',
+                component: () => import('@/components/function/application/submit/submitEquipmentApplication.vue')
+            }, {
+                path: '/handleEquipmentApplication',
+                name: 'index-handleEquipmentApplication',
+                component: () => import('@/components/function/application/handle/handleEquipmentApplication.vue')
+            }, {
+                path: '/submitProjectApplication',
+                name: 'index-submitProjectApplication',
+                component: () => import('@/components/function/application/submit/submitProjectApplication')
+            }, {
+                path: '/handleProjectApplication',
+                name: 'index-handleProjectApplication',
+                component: () => import('@/components/function/application/handle/handleProjectApplication.vue')
+            }, {
+                path: '/searchAchievements',
+                name: 'index-searchAchievements',
+                component: () => import('@/components/function/achievements/searchAchievements.vue')
+            }, {
+                path: '/changeAchievements',
+                name: 'index-changeAchievements',
+                component: () => import('@/components/function/achievements/changeAchievements.vue')
+            }, {
+                path: '/changeProject',
+                name: 'index-changeProject',
+                component: () => import('@/components/function/project/changeProject.vue')
+            }, {
+                path: '/searchProject',
+                name: 'index-searchProject',
+                component: () => import('@/components/function/project/searchProject.vue')
+            }, {
+                path: '/searchTeacherByProject',
+                name: 'index-searchTeacherByProject',
+                component: () => import('@/components/function/teacher/searchTeacherByProject.vue')
+            }, {
+                path: '/searchTeacherByTeacher',
+                name: 'index-searchTeacherByTeacher',
+                component: () => import('@/components/function/teacher/searchTeacherByTeacher.vue')
+            }, {
+                path: '/changeTeacherInformation',
+                name: 'index-changeTeacherInformation',
+                component: () => import('@/components/function/teacher/changeTeacherInformation.vue')
+            }, {
+                path: '/searchEquipment',
+                name: 'index-searchEquipment',
+                component: () => import('@/components/function/equipment/searchEquipment.vue')
+            }, {
+                path: '/changeEquipment',
+                name: 'index-changeEquipment',
+                component: () => import('@/components/function/equipment/changeEquipment.vue')
+            }, {
+                path: '/searchLaboratory',
+                name: 'index-searchLaboratory',
+                component: () => import('@/components/function/laboratory/searchLaboratory.vue')
+            }, {
+                path: '/changeLaboratory',
+                name: 'index-changeLaboratory',
+                component: () => import('@/components/function/laboratory/changeLaboratory.vue')
             }]
         }
     ]

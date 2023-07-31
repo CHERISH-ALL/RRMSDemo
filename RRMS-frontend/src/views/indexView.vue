@@ -45,7 +45,7 @@
               <span>用户主页</span>
             </template>
           </el-menu-item>
-          <el-sub-menu>
+          <el-sub-menu index="userInformation">
             <template #title>
               <span>个人信息</span>
             </template>
@@ -56,105 +56,105 @@
               <span>修改个人信息</span>
             </el-menu-item>
           </el-sub-menu>
-          <el-sub-menu index="3">
+          <el-sub-menu index="studentInformation">
             <template #title>
               <span>学生信息</span>
             </template>
-            <el-sub-menu index="3-1">
+            <el-sub-menu>
               <template #title>
                 <span>查询学生信息</span>
               </template>
-              <el-menu-item index="3-1-1">按项目</el-menu-item>
-              <el-menu-item index="3-1-2">按学生</el-menu-item>
+              <el-menu-item index="/searchStudentInformationByObject">按项目</el-menu-item>
+              <el-menu-item index="/searchStudentInformationByStudent">按学生</el-menu-item>
             </el-sub-menu>
-            <el-menu-item :disabled="isStudent||isTeacher" index="3-2">
+            <el-menu-item :disabled="isStudent||isTeacher" index="/changeStudentInformation">
               <span>修改学生信息</span>
             </el-menu-item>
           </el-sub-menu>
-          <el-sub-menu index="4">
+          <el-sub-menu index="record">
             <template #title>
               <span>日志信息</span>
             </template>
-            <el-menu-item index="4-1">
+            <el-menu-item index="/searchRecordByLaboratory">
               <span>按科研室查询</span>
             </el-menu-item>
-            <el-menu-item index="4-2">
+            <el-menu-item index="/searchRecordByStudent">
               <span>按学生查询</span>
             </el-menu-item>
           </el-sub-menu>
-          <el-sub-menu :disabled="isStudent" index="5">
+          <el-sub-menu :disabled="isStudent" index="application">
             <template #title>
               <span>提交或处理申请</span>
             </template>
-            <el-menu-item :disabled="isStudent||isAdmin" index="5-1">
+            <el-menu-item :disabled="isStudent||isAdmin" index="/submitEquipmentApplication">
               <span>提交设备申请</span>
             </el-menu-item>
-            <el-menu-item :disabled="isStudent||isTeacher" index="5-2">
+            <el-menu-item :disabled="isStudent||isTeacher" index="/handleEquipmentApplication">
               <span>处理设备申请</span>
             </el-menu-item>
-            <el-menu-item :disabled="isStudent||isAdmin" index="5-3">
+            <el-menu-item :disabled="isStudent||isAdmin" index="/submitProjectApplication">
               <span>提交项目申请</span>
             </el-menu-item>
-            <el-menu-item :disabled="isStudent||isTeacher" index="5-4">
+            <el-menu-item :disabled="isStudent||isTeacher" index="/handleProjectApplication">
               <span>处理项目申请</span>
             </el-menu-item>
           </el-sub-menu>
-          <el-sub-menu index="6">
+          <el-sub-menu index="achievements">
             <template #title>
               <span>论文与专利信息</span>
             </template>
-            <el-menu-item index="6-1">
+            <el-menu-item index="/searchAchievements">
               <span>查询论文与专利信息</span>
             </el-menu-item>
-            <el-menu-item :disabled="isStudent" index="6-2">
+            <el-menu-item :disabled="isStudent" index="/changeAchievements">
               <span>修改论文与专利信息</span>
             </el-menu-item>
           </el-sub-menu>
-          <el-sub-menu index="7">
+          <el-sub-menu index="project">
             <template #title>
               <span>科研项目信息</span>
             </template>
-            <el-menu-item index="7-1">
+            <el-menu-item index="/searchProject">
               <span>查询科研项目</span>
             </el-menu-item>
-            <el-menu-item :disabled="isStudent" index="7-2">
+            <el-menu-item :disabled="isStudent" index="/changeProject">
               <span>修改科研项目</span>
             </el-menu-item>
           </el-sub-menu>
-          <el-sub-menu index="8">
+          <el-sub-menu index="teacher">
             <template #title>
               <span>指导老师信息</span>
             </template>
-            <el-sub-menu index="8-1">
+            <el-sub-menu index="searchTeacherInformation">
               <template #title>
                 <span>查询指导老师信息</span>
               </template>
-              <el-menu-item index="8-1-1">按项目</el-menu-item>
-              <el-menu-item index="8-1-2">按老师</el-menu-item>
+              <el-menu-item index="/searchTeacherByProject">按项目</el-menu-item>
+              <el-menu-item index="/searchTeacherByTeacher">按老师</el-menu-item>
             </el-sub-menu>
-            <el-menu-item :disabled="isStudent||isTeacher" index="8-2">
+            <el-menu-item :disabled="isStudent||isTeacher" index="/changeTeacherInformation">
               <span>修改指导老师信息</span>
             </el-menu-item>
           </el-sub-menu>
-          <el-sub-menu index="9">
+          <el-sub-menu index="equipment">
             <template #title>
               <span>设备信息</span>
             </template>
-            <el-menu-item index="9-1">
+            <el-menu-item index="/searchEquipment">
               <span>查询设备信息</span>
             </el-menu-item>
-            <el-menu-item :disabled="isStudent||isTeacher" index="9-2">
+            <el-menu-item :disabled="isStudent||isTeacher" index="/changeEquipment">
               <span>修改设备信息</span>
             </el-menu-item>
           </el-sub-menu>
-          <el-sub-menu index="10">
+          <el-sub-menu index="laboratory">
             <template #title>
               <span>科研室信息</span>
             </template>
-            <el-menu-item index="10-1">
+            <el-menu-item index="/searchLaboratory">
               <span>查询科研室信息</span>
             </el-menu-item>
-            <el-menu-item :disabled="isStudent||isTeacher" index="10-2">
+            <el-menu-item :disabled="isStudent||isTeacher" index="/changeLaboratory">
               <span>修改科研室信息</span>
             </el-menu-item>
           </el-sub-menu>
