@@ -28,8 +28,16 @@ const router = createRouter({
             component: () => import('@/views/indexView.vue'),
             children: [{
                 path: '',
-                name: 'studentIndex',
-                component: () => import('@/components/student/studentIndex.vue')
+                name: 'index-userIndex',
+                component: () => import('@/components/function/index/userIndex.vue')
+            }, {
+                path: '/searchUserInformation',
+                name: 'index-searchUserInformation',
+                component: () => import('@/components/function/userInformation/searchUserInformation.vue')
+            }, {
+                path: '/changeUserInformation',
+                name: 'index-changeUserInformation',
+                component: () => import ('@/components/function/userInformation/changeUserInformation.vue')
             }]
         }
     ]

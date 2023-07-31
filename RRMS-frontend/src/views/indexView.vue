@@ -34,124 +34,134 @@
             active-text-color="#ffd04b"
             background-color="#545c64"
             class="el-menu-vertical-demo"
-            style="height: 100vh;width: 15vw;"
+            default-active="/"
             text-color="#fff"
             unique-opened="unique-opened"
+            router
+            style="height: 100vh;width: 15vw"
         >
-          <el-sub-menu index="1">
+          <el-menu-item index="/">
+            <template #title>
+              <span>用户主页</span>
+            </template>
+          </el-menu-item>
+          <el-sub-menu>
             <template #title>
               <span>个人信息</span>
             </template>
-            <el-menu-item index="1-1">
+            <el-menu-item index="/searchUserInformation">
               <span>查询个人信息</span>
             </el-menu-item>
-            <el-menu-item index="1-2">
+            <el-menu-item index="/changeUserInformation">
               <span>修改个人信息</span>
-            </el-menu-item>
-          </el-sub-menu>
-          <el-sub-menu index="2">
-            <template #title>
-              <span>学生信息</span>
-            </template>
-            <el-sub-menu index="2-1">
-              <template #title>
-                <span>查询学生信息</span>
-              </template>
-              <el-menu-item index="2-1-1">按项目</el-menu-item>
-              <el-menu-item index="2-1-2">按学生</el-menu-item>
-            </el-sub-menu>
-            <el-menu-item :disabled="isStudent||isTeacher" index="2-2">
-              <span>修改学生信息</span>
             </el-menu-item>
           </el-sub-menu>
           <el-sub-menu index="3">
             <template #title>
+              <span>学生信息</span>
+            </template>
+            <el-sub-menu index="3-1">
+              <template #title>
+                <span>查询学生信息</span>
+              </template>
+              <el-menu-item index="3-1-1">按项目</el-menu-item>
+              <el-menu-item index="3-1-2">按学生</el-menu-item>
+            </el-sub-menu>
+            <el-menu-item :disabled="isStudent||isTeacher" index="3-2">
+              <span>修改学生信息</span>
+            </el-menu-item>
+          </el-sub-menu>
+          <el-sub-menu index="4">
+            <template #title>
               <span>日志信息</span>
             </template>
-            <el-menu-item index="3-1">
+            <el-menu-item index="4-1">
               <span>按科研室查询</span>
             </el-menu-item>
-            <el-menu-item index="3-2">
+            <el-menu-item index="4-2">
               <span>按学生查询</span>
             </el-menu-item>
           </el-sub-menu>
-          <el-sub-menu :disabled="isStudent" index="4">
+          <el-sub-menu :disabled="isStudent" index="5">
             <template #title>
               <span>提交或处理申请</span>
             </template>
-            <el-menu-item :disabled="isStudent||isAdmin" index="4-1">
+            <el-menu-item :disabled="isStudent||isAdmin" index="5-1">
               <span>提交设备申请</span>
             </el-menu-item>
-            <el-menu-item :disabled="isStudent||isTeacher" index="4-2">
+            <el-menu-item :disabled="isStudent||isTeacher" index="5-2">
               <span>处理设备申请</span>
             </el-menu-item>
-            <el-menu-item :disabled="isStudent||isAdmin" index="4-3">
+            <el-menu-item :disabled="isStudent||isAdmin" index="5-3">
               <span>提交项目申请</span>
             </el-menu-item>
-            <el-menu-item :disabled="isStudent||isTeacher" index="4-4">
+            <el-menu-item :disabled="isStudent||isTeacher" index="5-4">
               <span>处理项目申请</span>
-            </el-menu-item>
-          </el-sub-menu>
-          <el-sub-menu index="5">
-            <template #title>
-              <span>论文与专利信息</span>
-            </template>
-            <el-menu-item index="5-1">
-              <span>查询论文与专利信息</span>
-            </el-menu-item>
-            <el-menu-item :disabled="isStudent" index="5-2">
-              <span>修改论文与专利信息</span>
             </el-menu-item>
           </el-sub-menu>
           <el-sub-menu index="6">
             <template #title>
-              <span>科研项目信息</span>
+              <span>论文与专利信息</span>
             </template>
             <el-menu-item index="6-1">
-              <span>查询科研项目</span>
+              <span>查询论文与专利信息</span>
             </el-menu-item>
             <el-menu-item :disabled="isStudent" index="6-2">
-              <span>修改科研项目</span>
+              <span>修改论文与专利信息</span>
             </el-menu-item>
           </el-sub-menu>
           <el-sub-menu index="7">
             <template #title>
-              <span>指导老师信息</span>
+              <span>科研项目信息</span>
             </template>
-            <el-sub-menu index="7-1">
-              <template #title>
-                <span>查询指导老师信息</span>
-              </template>
-              <el-menu-item index="7-1-1">按项目</el-menu-item>
-              <el-menu-item index="7-1-2">按老师</el-menu-item>
-            </el-sub-menu>
-            <el-menu-item :disabled="isStudent||isTeacher" index="7-2">
-              <span>修改指导老师信息</span>
+            <el-menu-item index="7-1">
+              <span>查询科研项目</span>
+            </el-menu-item>
+            <el-menu-item :disabled="isStudent" index="7-2">
+              <span>修改科研项目</span>
             </el-menu-item>
           </el-sub-menu>
           <el-sub-menu index="8">
             <template #title>
-              <span>设备信息</span>
+              <span>指导老师信息</span>
             </template>
-            <el-menu-item index="8-1">
-              <span>查询设备信息</span>
-            </el-menu-item>
+            <el-sub-menu index="8-1">
+              <template #title>
+                <span>查询指导老师信息</span>
+              </template>
+              <el-menu-item index="8-1-1">按项目</el-menu-item>
+              <el-menu-item index="8-1-2">按老师</el-menu-item>
+            </el-sub-menu>
             <el-menu-item :disabled="isStudent||isTeacher" index="8-2">
-              <span>修改设备信息</span>
+              <span>修改指导老师信息</span>
             </el-menu-item>
           </el-sub-menu>
           <el-sub-menu index="9">
             <template #title>
-              <span>科研室信息</span>
+              <span>设备信息</span>
             </template>
             <el-menu-item index="9-1">
-              <span>查询科研室信息</span>
+              <span>查询设备信息</span>
             </el-menu-item>
             <el-menu-item :disabled="isStudent||isTeacher" index="9-2">
+              <span>修改设备信息</span>
+            </el-menu-item>
+          </el-sub-menu>
+          <el-sub-menu index="10">
+            <template #title>
+              <span>科研室信息</span>
+            </template>
+            <el-menu-item index="10-1">
+              <span>查询科研室信息</span>
+            </el-menu-item>
+            <el-menu-item :disabled="isStudent||isTeacher" index="10-2">
               <span>修改科研室信息</span>
             </el-menu-item>
           </el-sub-menu>
         </el-menu>
+      </div>
+      <div style="float:left;width: 85vw;height: 90vh">
+        <router-view/>
       </div>
     </div>
   </div>
